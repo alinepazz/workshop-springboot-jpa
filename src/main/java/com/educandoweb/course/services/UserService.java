@@ -8,6 +8,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+import java.util.UUID;
+
 @Service
 public class UserService {
     final UserRepository userRepository;
@@ -25,5 +28,9 @@ public class UserService {
 
     public Page<User> getAll(Pageable pageable) {
        return userRepository.findAll(pageable);
+    }
+
+    public Optional<User> findById(UUID uuid) {
+      return userRepository.findById(uuid);
     }
 }

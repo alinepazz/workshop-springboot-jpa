@@ -12,12 +12,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Optional;
+import java.util.UUID;
 
 @RestController
 @RequestMapping(value = "/users")
 public class UserController {
 
-    final UserService userService;
+    private final UserService userService;
 
     public UserController(UserService userService) {
         this.userService = userService;
@@ -33,5 +35,11 @@ public class UserController {
     public ResponseEntity<Page <User>>getAllUsers(
             @PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(userService.getAll(pageable));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<User>findById(@PathVariable(value = "id") UUID uuid){
+        Optional<User> user = userService.findById(uuid);
+        return ResponseEntity.status(HttpStatus.OK).body(user.get());
     }
 }
