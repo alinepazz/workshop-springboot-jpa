@@ -3,7 +3,6 @@ package com.educandoweb.course.services;
 import com.educandoweb.course.dtos.UserDto;
 import com.educandoweb.course.entities.User;
 import com.educandoweb.course.repositories.UserRepository;
-import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -20,8 +19,7 @@ public class UserService {
     }
 
     public void save(UserDto userDto) {
-        var user = new User();
-        BeanUtils.copyProperties(userDto, user );
+        User user = criarUser(userDto);
         userRepository.save(user);
     }
 
@@ -31,5 +29,15 @@ public class UserService {
 
     public Optional<User> findById(UUID uuid) {
       return userRepository.findById(uuid);
+    }
+
+    private User criarUser(UserDto userDto) {
+        User user = User.builder()
+                .name(userDto.getName())
+                .email(userDto.getEmail())
+                .phone(userDto.getPhone())
+                .password(userDto.getPassword())
+                .build();
+        return user;
     }
 }
