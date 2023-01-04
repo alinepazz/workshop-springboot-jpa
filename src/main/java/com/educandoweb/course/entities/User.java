@@ -1,5 +1,6 @@
 package com.educandoweb.course.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -37,6 +38,7 @@ public class User implements Serializable {
     @Column(nullable = false)
     private String password;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "client")
     private List<Order>orders = new ArrayList<>();
 }
