@@ -23,7 +23,6 @@ public class UserService {
         var user = new User();
         BeanUtils.copyProperties(userDto, user );
         userRepository.save(user);
-
     }
 
     public Page<User> getAll(Pageable pageable) {
