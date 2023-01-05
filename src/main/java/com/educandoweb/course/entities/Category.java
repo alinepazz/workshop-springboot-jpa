@@ -1,6 +1,5 @@
 package com.educandoweb.course.entities;
 
-import com.educandoweb.course.entities.enums.OrderStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.Instant;
 import java.util.UUID;
 
 @Builder
@@ -16,8 +14,8 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "TB_ORDER")
-public class Order implements Serializable {
+@Table(name = "TB_CATEGORY")
+public class Category implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -25,12 +23,5 @@ public class Order implements Serializable {
     private UUID id;
 
     @Column(nullable = false)
-    private Instant moment;
-
-    @Column
-    private Integer orderStatus;
-
-    @JoinColumn(name = "client_id")
-    @ManyToOne
-    private User client;
+    private String name;
 }
