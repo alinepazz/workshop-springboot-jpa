@@ -29,8 +29,8 @@ public class OrderController {
     }
 
     @PostMapping("/{id}")
-    public ResponseEntity<Object>saveUser(@PathVariable(value = "id") UUID client){
-        orderService.save(client);
+    public ResponseEntity<Object>saveUser(@PathVariable(value = "id") UUID client, @RequestBody  OrderDto orderDto){
+        orderService.save(client, orderDto);
         return ResponseEntity.status(HttpStatus.CREATED).body("Pedido cadastrado com sucesso!");
     }
 

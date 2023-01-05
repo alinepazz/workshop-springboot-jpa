@@ -1,12 +1,12 @@
 package com.educandoweb.course.entities;
 
+import com.educandoweb.course.entities.enums.OrderStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.UUID;
 
@@ -24,6 +24,9 @@ public class Order {
 
     @Column(nullable = false)
     private Instant moment;
+
+    @Column
+    private Integer orderStatus;
 
     @JoinColumn(name = "client_id")
     @ManyToOne

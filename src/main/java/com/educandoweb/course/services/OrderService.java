@@ -1,7 +1,9 @@
 package com.educandoweb.course.services;
 
+import com.educandoweb.course.dtos.OrderDto;
 import com.educandoweb.course.entities.Order;
 import com.educandoweb.course.entities.User;
+import com.educandoweb.course.entities.enums.OrderStatus;
 import com.educandoweb.course.repositories.OderRepository;
 import com.educandoweb.course.repositories.UserRepository;
 import org.springframework.data.domain.Page;
@@ -24,8 +26,9 @@ public class OrderService {
         this.userRepository = userRepository;
     }
 
-    public void save(UUID client) {
-        Order order = recuperarUser(client);
+    public void save(UUID client, OrderDto orderDto) {
+        OrderStatus.orderStatus(orderDto.getOrderStatus());
+        Order order = recuperarUser(client, orderDto);
         oderRepository.save(order);
     }
 
@@ -38,11 +41,12 @@ public class OrderService {
     }
 
 
-    private Order recuperarUser(UUID client) {
+    private Order recuperarUser(UUID client, OrderDto orderDto) {
         try {
            Optional<User> user =  userRepository.findById(client);
             order = Order.builder()
                    .moment(Instant.now().truncatedTo(ChronoUnit.HOURS))
+                    .orderStatus(orderDto.getOrderStatus())
                    .client(user.get())
                    .build();
         }catch (Exception e){
