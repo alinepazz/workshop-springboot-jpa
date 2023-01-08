@@ -1,6 +1,5 @@
 package com.educandoweb.course.entities;
 
-import com.educandoweb.course.entities.enums.OrderStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

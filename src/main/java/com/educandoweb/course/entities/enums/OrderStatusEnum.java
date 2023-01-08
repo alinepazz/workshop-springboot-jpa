@@ -1,6 +1,6 @@
 package com.educandoweb.course.entities.enums;
 
-public enum OrderStatus {
+public enum OrderStatusEnum {
     WAITING_PAYMENT(1),
     PAID(2),
     SHIPPED(3),
@@ -9,7 +9,7 @@ public enum OrderStatus {
 
     private Integer code;
 
-    OrderStatus(Integer code) {
+    OrderStatusEnum(Integer code) {
         this.code = code;
     }
 
@@ -17,8 +17,8 @@ public enum OrderStatus {
         return code;
     }
 
-    public static OrderStatus orderStatus(Integer code){
-        for (OrderStatus value : OrderStatus.values()){
+    public static OrderStatusEnum validarOrderCode(Integer code){
+        for (OrderStatusEnum value : OrderStatusEnum.values()){
             if (value.getCode() == code){
                 return value;
             }

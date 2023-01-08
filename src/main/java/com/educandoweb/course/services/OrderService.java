@@ -3,7 +3,7 @@ package com.educandoweb.course.services;
 import com.educandoweb.course.dtos.OrderDto;
 import com.educandoweb.course.entities.Order;
 import com.educandoweb.course.entities.User;
-import com.educandoweb.course.entities.enums.OrderStatus;
+import com.educandoweb.course.entities.enums.OrderStatusEnum;
 import com.educandoweb.course.repositories.OderRepository;
 import com.educandoweb.course.repositories.UserRepository;
 import org.springframework.data.domain.Page;
@@ -27,7 +27,7 @@ public class OrderService {
     }
 
     public void save(UUID client, OrderDto orderDto) {
-        OrderStatus.orderStatus(orderDto.getOrderStatus());
+        OrderStatusEnum.validarOrderCode(orderDto.getOrderStatus());
         Order order = recuperarUser(client, orderDto);
         oderRepository.save(order);
     }
@@ -50,7 +50,7 @@ public class OrderService {
                    .client(user.get())
                    .build();
         }catch (Exception e){
-            e.getMessage();
+            throw new IllegalArgumentException("User não localizado: {}", e);
         }
         return  order;
     }
