@@ -26,13 +26,13 @@ public class CategoryController {
     }
 
     @PostMapping
-    public ResponseEntity<Object>saveUser(@RequestBody @Valid CategoryDto categoryDto ){
+    public ResponseEntity<Object>saveCategory(@RequestBody @Valid CategoryDto categoryDto ){
         categoryService.save(categoryDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(categoryDto);
     }
 
     @GetMapping
-    public ResponseEntity<Page <Category>>getAllUsers(
+    public ResponseEntity<Page <Category>>getAllCategory(
             @PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(categoryService.getAll(pageable));
     }

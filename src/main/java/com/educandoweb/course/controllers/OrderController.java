@@ -29,13 +29,13 @@ public class OrderController {
     }
 
     @PostMapping("/{id}")
-    public ResponseEntity<Object>saveUser(@PathVariable(value = "id") UUID client, @RequestBody  OrderDto orderDto){
+    public ResponseEntity<Object>saveOrder(@PathVariable(value = "id") UUID client, @RequestBody  OrderDto orderDto){
         orderService.save(client, orderDto);
         return ResponseEntity.status(HttpStatus.CREATED).body("Pedido cadastrado com sucesso!");
     }
 
     @GetMapping
-    public ResponseEntity<Page <Order>>getAllUsers(
+    public ResponseEntity<Page <Order>>getAllOrder(
             @PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(orderService.getAll(pageable));
     }
