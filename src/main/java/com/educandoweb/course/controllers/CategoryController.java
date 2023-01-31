@@ -1,6 +1,6 @@
 package com.educandoweb.course.controllers;
 
-import com.educandoweb.course.dtos.CategoryDto;
+import com.educandoweb.course.dtos.in.CategoryDto;
 import com.educandoweb.course.entities.Category;
 import com.educandoweb.course.services.CategoryService;
 import org.springframework.data.domain.Page;

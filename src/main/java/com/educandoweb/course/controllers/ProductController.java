@@ -1,11 +1,8 @@
 package com.educandoweb.course.controllers;
 
-import com.educandoweb.course.dtos.ProductDto;
-import com.educandoweb.course.dtos.UserDto;
+import com.educandoweb.course.dtos.in.ProductDto;
 import com.educandoweb.course.entities.Product;
-import com.educandoweb.course.entities.User;
 import com.educandoweb.course.services.ProductService;
-import com.educandoweb.course.services.UserService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;

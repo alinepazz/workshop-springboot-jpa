@@ -1,6 +1,6 @@
 package com.educandoweb.course.controllers;
 
-import com.educandoweb.course.dtos.UserDto;
+import com.educandoweb.course.dtos.in.UserDto;
 import com.educandoweb.course.entities.User;
 import com.educandoweb.course.services.UserService;
 import org.springframework.data.domain.Page;

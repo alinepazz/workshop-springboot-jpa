@@ -1,6 +1,6 @@
 package com.educandoweb.course.services;
 
-import com.educandoweb.course.dtos.ProductDto;
+import com.educandoweb.course.dtos.in.ProductDto;
 import com.educandoweb.course.entities.Category;
 import com.educandoweb.course.entities.Product;
 import com.educandoweb.course.repositories.CategoryRepository;

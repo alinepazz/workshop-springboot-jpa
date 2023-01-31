@@ -1,6 +1,6 @@
 package com.educandoweb.course.services;
 
-import com.educandoweb.course.dtos.UserDto;
+import com.educandoweb.course.dtos.in.UserDto;
 import com.educandoweb.course.entities.User;
 import com.educandoweb.course.repositories.UserRepository;
 import org.springframework.data.domain.Page;

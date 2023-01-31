@@ -1,4 +1,4 @@
-package com.educandoweb.course.dtos;
+package com.educandoweb.course.dtos.in;
 
 
 import com.educandoweb.course.entities.Category;

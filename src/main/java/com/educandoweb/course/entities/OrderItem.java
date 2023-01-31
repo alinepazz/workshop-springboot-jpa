@@ -1,30 +1,34 @@
 package com.educandoweb.course.entities;
 
 import com.educandoweb.course.entities.pk.OrderItemPK;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import org.aspectj.weaver.ast.Or;
 
 
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
-@Data
+
 @Entity
 @Table(name = "TB_ORDER_ITEM")
 public class OrderItem implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @EmbeddedId
-    private OrderItemPK id;
+    private OrderItemPK id = new OrderItemPK();
 
     @Column
     private Integer quantity;
 
     @Column
     private Double price;
+
 
     public OrderItem(Order order, Product product, Integer quantity, Double price){
         id.setOrder(order);
@@ -33,6 +37,10 @@ public class OrderItem implements Serializable {
         this.price = price;
     }
 
+    public OrderItem(){
+    }
+
+    @JsonIgnore
     public Order getOrder(){
         return id.getOrder();
     }
@@ -49,5 +57,19 @@ public class OrderItem implements Serializable {
         id.setProduct(product);
     }
 
+    public Integer getQuantity() {
+        return quantity;
+    }
 
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
 }
