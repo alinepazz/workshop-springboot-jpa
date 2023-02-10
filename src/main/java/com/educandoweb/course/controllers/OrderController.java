@@ -1,12 +1,8 @@
 package com.educandoweb.course.controllers;
 
 import com.educandoweb.course.dtos.in.OrderDto;
-import com.educandoweb.course.dtos.out.OrderDtoOut;
-import com.educandoweb.course.entities.Category;
 import com.educandoweb.course.entities.Order;
-import com.educandoweb.course.mapper.OrderMapper;
 import com.educandoweb.course.services.OrderService;
-import lombok.var;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -14,9 +10,6 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -25,8 +18,6 @@ import java.util.UUID;
 public class OrderController {
 
     private final OrderService orderService;
-    //private final OrderMapper orderMapper;
-
     public OrderController(OrderService orderService) {
         this.orderService = orderService;
     }

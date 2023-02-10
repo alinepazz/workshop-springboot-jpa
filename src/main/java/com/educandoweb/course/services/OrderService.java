@@ -9,10 +9,8 @@ import com.educandoweb.course.repositories.UserRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -20,7 +18,6 @@ import java.util.UUID;
 public class OrderService {
     final OrderRepository orderRepository;
     final UserRepository userRepository;
-    //private final OrderMapper orderMapper;
     private Order order;
 
     public OrderService(OrderRepository orderRepository, UserRepository userRepository) {
@@ -57,8 +54,4 @@ public class OrderService {
         }
         return  order;
     }
-
-//    public List<Order> getAllOrders() {
-//        return orderRepository.findAll();
-//    }
 }
