@@ -1,8 +1,5 @@
 package com.educandoweb.course.core.domain;
 
-import com.educandoweb.course.dataprovider.repository.entity.CategoryEntity;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -18,12 +15,12 @@ public class Product {
 
     private String imgUrl;
 
-    private List<Category> categories = new ArrayList<>();
+    private List<Category> categories;
 
     public Product(){
     }
 
-    public Product(UUID id, String name, String description, Double price, String imgUrl, List<Category> categories) {
+    public Product(UUID id, String name, String description, Double price, String imgUrl,List<Category> categories) {
         this.id = id;
         this.name = name;
         this.description = description;

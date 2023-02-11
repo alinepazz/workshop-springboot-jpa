@@ -8,9 +8,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 @Builder
 @Data
@@ -30,5 +28,5 @@ public class CategoryEntity implements Serializable {
 
     @JsonIgnore
     @ManyToMany(mappedBy = "categories")
-    private Set<ProductEntity> products = new HashSet<>();
+    private List<ProductEntity> products = new ArrayList<>();
 }

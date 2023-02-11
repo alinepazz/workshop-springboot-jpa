@@ -1,10 +1,7 @@
 package com.educandoweb.course.core.domain;
 
-import com.educandoweb.course.dataprovider.repository.entity.ProductEntity;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 public class Category {
 
@@ -12,15 +9,12 @@ public class Category {
 
     private String name;
 
-    private Set<Product> products = new HashSet<>();
-
     public Category(){
     }
 
-    public Category(UUID id, String name, Set<Product> products) {
+    public Category(UUID id, String name) {
         this.id = id;
         this.name = name;
-        this.products = products;
     }
 
     public UUID getId() {
@@ -39,11 +33,4 @@ public class Category {
         this.name = name;
     }
 
-    public Set<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(Set<Product> products) {
-        this.products = products;
-    }
 }
