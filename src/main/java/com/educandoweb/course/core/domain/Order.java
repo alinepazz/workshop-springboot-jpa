@@ -1,7 +1,5 @@
 package com.educandoweb.course.core.domain;
 
-import com.educandoweb.course.dataprovider.repository.entity.UserEntity;
-
 import java.time.Instant;
 import java.util.UUID;
 

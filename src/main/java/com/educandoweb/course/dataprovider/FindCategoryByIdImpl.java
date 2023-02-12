@@ -6,12 +6,13 @@ import com.educandoweb.course.dataprovider.repository.CategoryRepository;
 import com.educandoweb.course.dataprovider.repository.mapper.CategoryEntityMapper;
 import lombok.var;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 import java.util.UUID;
 
-@Service
+@Component
 public class FindCategoryByIdImpl implements FindCategoryById {
 
     @Autowired

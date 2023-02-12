@@ -8,13 +8,14 @@ import com.educandoweb.course.dataprovider.repository.entity.enums.OrderStatusEn
 import com.educandoweb.course.dataprovider.repository.mapper.OrderEntityMapper;
 import lombok.var;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.UUID;
 
-@Service
+@Component
 public class InsertOrderImpl implements InsertOrder {
 
     @Autowired

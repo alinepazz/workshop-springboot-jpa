@@ -6,11 +6,11 @@ import com.educandoweb.course.core.usecase.InsertOrderUserCase;
 
 import java.util.UUID;
 
-public class InsertOrderUserCaseImpl implements InsertOrderUserCase {
+public class InsertOrderUseCaseImpl implements InsertOrderUserCase {
 
     private final InsertOrder insertOrder;
 
-    public InsertOrderUserCaseImpl(InsertOrder insertOrder) {
+    public InsertOrderUseCaseImpl(InsertOrder insertOrder) {
         this.insertOrder = insertOrder;
     }
 

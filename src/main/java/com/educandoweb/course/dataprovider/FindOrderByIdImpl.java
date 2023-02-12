@@ -6,12 +6,13 @@ import com.educandoweb.course.dataprovider.repository.OrderRepository;
 import com.educandoweb.course.dataprovider.repository.mapper.OrderEntityMapper;
 import lombok.var;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 import java.util.UUID;
 
-@Service
+@Component
 public class FindOrderByIdImpl implements FindOrderById {
     @Autowired
     private OrderRepository orderRepository;
