@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Builder
@@ -33,6 +35,6 @@ public class OrderEntity {
     @ManyToOne
     private UserEntity client;
 
-//    @OneToMany(mappedBy = "id.order")
-//    private Set<OrderItem> items = new HashSet<>();
+    @OneToMany(mappedBy = "id.order")
+    private List<OrderItemEntity> items = new ArrayList<>();
 }

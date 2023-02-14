@@ -1,6 +1,7 @@
 package com.educandoweb.course.entrypoint.controller;
 
 import com.educandoweb.course.core.usecase.FindAllProductsUseCase;
+import com.educandoweb.course.core.usecase.FindProductByIdUseCase;
 import com.educandoweb.course.core.usecase.InsertProductUseCase;
 import com.educandoweb.course.entrypoint.controller.mapper.ProductMapper;
 import com.educandoweb.course.entrypoint.controller.request.ProductRequest;
@@ -24,6 +25,9 @@ public class ProductController {
     private FindAllProductsUseCase findAllProductsUseCase;
 
     @Autowired
+    private FindProductByIdUseCase findProductByIdUseCase;
+
+    @Autowired
     private ProductMapper productMapper;
 
     @PostMapping("/{id}")
@@ -40,5 +44,13 @@ public class ProductController {
         var products = findAllProductsUseCase.findAll();
         var productResponse = productMapper.toProductResponse(products);
         return ResponseEntity.ok().body(productResponse);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ProductResponse>findById(@PathVariable(value = "id")UUID id){
+        var product = findProductByIdUseCase.findById(id);
+        var productResponse = productMapper.toProductResponseById(product);
+        return ResponseEntity.ok().body(productResponse);
+
     }
 }

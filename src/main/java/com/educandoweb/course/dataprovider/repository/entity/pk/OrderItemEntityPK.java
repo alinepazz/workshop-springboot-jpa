@@ -16,7 +16,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Embeddable
-public class OrderItemPK implements Serializable {
+public class OrderItemEntityPK implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ManyToOne
