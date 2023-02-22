@@ -1,10 +1,14 @@
 package com.educandoweb.course.core.domain;
 
-import com.educandoweb.course.core.domain.pk.OrderItemPK;
+
+import com.educandoweb.course.dataprovider.repository.entity.OrderEntity;
+import com.educandoweb.course.dataprovider.repository.entity.ProductEntity;
+import com.educandoweb.course.dataprovider.repository.entity.pk.OrderItemEntityPK;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class OrderItem {
 
-    private OrderItemPK id = new OrderItemPK();
+    private OrderItemEntityPK id;
 
     private Integer quantity;
 
@@ -12,26 +16,27 @@ public class OrderItem {
 
     public OrderItem(){}
 
-    public OrderItem(Order order, Product product, Integer quantity, Double price) {
+    public OrderItem(OrderItemEntityPK id, OrderEntity order, ProductEntity product, Integer quantity, Double price) {
         id.setOrder(order);
         id.setProduct(product);
         this.quantity = quantity;
         this.price = price;
+        this.id = id;
     }
 
-    public Order getOrder(){
+    public OrderEntity getOrder(){
         return id.getOrder();
     }
 
-    public void setOrder(Order order){
+    public void setOrder(OrderEntity order){
         id.setOrder(order);
     }
 
-    public Product getProduct(){
+    public ProductEntity getProduct(){
         return id.getProduct();
     }
 
-    public void setProduct(Product product){
+    public void setProduct(ProductEntity product){
         id.setProduct(product);
     }
 
@@ -51,5 +56,13 @@ public class OrderItem {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public OrderItemEntityPK getId() {
+        return id;
+    }
+
+    public void setId(OrderItemEntityPK id) {
+        this.id = id;
     }
 }

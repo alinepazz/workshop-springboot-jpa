@@ -32,6 +32,7 @@ public class OrderEntity {
     private Integer orderStatus;
 
     @JoinColumn(name = "client_id")
+
     @ManyToOne
     private UserEntity client;
 
