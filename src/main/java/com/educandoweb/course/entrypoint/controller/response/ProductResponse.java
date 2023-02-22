@@ -1,5 +1,6 @@
 package com.educandoweb.course.entrypoint.controller.response;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import java.util.ArrayList;

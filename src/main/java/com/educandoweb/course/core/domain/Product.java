@@ -16,6 +16,8 @@ public class Product {
     private String imgUrl;
 
     private List<Category> categories;
+//
+//    private List<Order> orders;
 
     public Product(){
     }
@@ -76,4 +78,6 @@ public class Product {
     public void setCategories(List<Category> categories) {
         this.categories = categories;
     }
+
+
 }

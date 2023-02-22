@@ -1,6 +1,7 @@
 package com.educandoweb.course.dataprovider.repository.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -40,4 +41,16 @@ public class ProductEntity {
     @ManyToMany
     @JoinTable(name = "tb_product_category", joinColumns = @JoinColumn(name = "product_id"),inverseJoinColumns = @JoinColumn(name = "category_id"))
     private List<CategoryEntity> categories = new ArrayList<>();
+
+    @OneToMany(mappedBy = "id.product")
+    private List<OrderItemEntity>items = new ArrayList<>();
+
+    @JsonIgnore
+    public List<OrderEntity>getOrders(){
+        List<OrderEntity> list = new ArrayList<>();
+        for(OrderItemEntity orderItemEntity : items){
+            list.add(orderItemEntity.getOrderEntity());
+        }
+        return list;
+    }
 }
