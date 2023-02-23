@@ -8,8 +8,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 @Builder
@@ -17,8 +15,9 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "TB_ORDER")
-public class OrderEntity {
+@Table(name = "TB_PAYMENT")
+public class PaymentEntity {
+
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -28,17 +27,7 @@ public class OrderEntity {
     @Column(nullable = false)
     private Instant moment;
 
-    @Column
-    private Integer orderStatus;
-
-    @JoinColumn(name = "client_id")
-
-    @ManyToOne
-    private UserEntity client;
-
-    @OneToMany(mappedBy = "id.order")
-    private List<OrderItemEntity> items = new ArrayList<>();
-
-    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
-    private PaymentEntity paymentEntity;
+    @OneToOne
+    @MapsId()
+    private OrderEntity order;
 }
