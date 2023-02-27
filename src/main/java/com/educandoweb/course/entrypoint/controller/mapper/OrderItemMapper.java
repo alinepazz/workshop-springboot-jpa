@@ -13,6 +13,7 @@ public interface OrderItemMapper {
 
 
     @Mapping(target = "price", ignore = true)
+    @Mapping(target = "id", ignore = true)
     @Mapping(target = "order.id", source = "idOrder")
     @Mapping(target = "product.id", source = "idProduct")
     OrderItem toOrderItem(OrderItemRequest orderItemRequest);

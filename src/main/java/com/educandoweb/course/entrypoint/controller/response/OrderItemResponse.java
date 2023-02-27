@@ -24,7 +24,6 @@ public class OrderItemResponse {
     public OrderItemResponse(){
     }
 
-
     @JsonIgnore
     public Order getOrder(){
         return id.getOrder();
@@ -34,7 +33,9 @@ public class OrderItemResponse {
         id.setOrder(order);
     }
 
-
+    public Double getSubTotal(){
+        return price * quantity;
+    }
     public Product getProduct(){
         return id.getProduct();
     }

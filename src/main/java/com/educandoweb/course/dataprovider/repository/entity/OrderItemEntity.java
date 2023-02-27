@@ -77,5 +77,7 @@ public class    OrderItemEntity implements Serializable {
     public void setId(OrderItemEntityPK id) {
         this.id = id;
     }
+
+
 }
 

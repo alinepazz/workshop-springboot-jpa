@@ -1,5 +1,8 @@
 package com.educandoweb.course.core.domain;
 
+import com.educandoweb.course.dataprovider.repository.entity.OrderItemEntity;
+import com.educandoweb.course.dataprovider.repository.entity.PaymentEntity;
+
 import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
@@ -16,15 +19,18 @@ public class Order {
 
     private List<OrderItem> items;
 
+    private PaymentEntity paymentEntity;
+
     public Order(){
     }
 
-    public Order(UUID id, Instant moment, Integer orderStatus, User client, List<OrderItem> items) {
+    public Order(UUID id, Instant moment, Integer orderStatus, User client, List<OrderItem> items, PaymentEntity paymentEntity) {
         this.id = id;
         this.moment = moment;
         this.orderStatus = orderStatus;
         this.client = client;
         this.items = items;
+        this.paymentEntity = paymentEntity;
     }
 
     public UUID getId() {
@@ -66,4 +72,13 @@ public class Order {
     public void setItems(List<OrderItem> items) {
         this.items = items;
     }
+
+    public PaymentEntity getPaymentEntity() {
+        return paymentEntity;
+    }
+
+    public void setPaymentEntity(PaymentEntity paymentEntity) {
+        this.paymentEntity = paymentEntity;
+    }
+
 }

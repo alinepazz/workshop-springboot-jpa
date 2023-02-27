@@ -1,6 +1,7 @@
 package com.educandoweb.course.dataprovider.repository.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,6 +28,7 @@ public class PaymentEntity {
     @Column(nullable = false)
     private Instant moment;
 
+    @JsonIgnore
     @OneToOne
     @MapsId()
     private OrderEntity order;

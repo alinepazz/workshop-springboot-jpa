@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class OrderItem {
 
-    private OrderItemEntityPK id;
+    private OrderItemEntityPK id = new OrderItemEntityPK();
 
     private Integer quantity;
 
@@ -65,4 +65,6 @@ public class OrderItem {
     public void setId(OrderItemEntityPK id) {
         this.id = id;
     }
+
+
 }

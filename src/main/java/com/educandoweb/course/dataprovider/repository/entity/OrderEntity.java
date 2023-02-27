@@ -41,4 +41,6 @@ public class OrderEntity {
 
     @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
     private PaymentEntity paymentEntity;
+
+
 }
