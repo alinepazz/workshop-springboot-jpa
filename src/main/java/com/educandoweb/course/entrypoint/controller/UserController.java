@@ -1,9 +1,6 @@
 package com.educandoweb.course.entrypoint.controller;
 
-import com.educandoweb.course.core.usecase.DeleteUserUseCase;
-import com.educandoweb.course.core.usecase.FindAllUsersUseCase;
-import com.educandoweb.course.core.usecase.FindUserByIdUseCase;
-import com.educandoweb.course.core.usecase.InsertUserUseCase;
+import com.educandoweb.course.core.usecase.*;
 import com.educandoweb.course.entrypoint.controller.mapper.UserMapper;
 import com.educandoweb.course.entrypoint.controller.request.UserRequest;
 import com.educandoweb.course.entrypoint.controller.response.UserResponse;
@@ -39,6 +36,9 @@ public class UserController {
     private FindUserByIdUseCase findUserByIdUseCase;
 
     @Autowired
+    private UpdateUserUseCase updateUserUseCase;
+
+    @Autowired
     private DeleteUserUseCase deleteUserUseCase;
 
     @PostMapping
@@ -67,5 +67,13 @@ public class UserController {
     public ResponseEntity<Void>deleteById(@PathVariable UUID id){
         deleteUserUseCase.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Void>update(@PathVariable(value = "id") UUID id, @RequestBody UserRequest userRequest){
+        var user = userMapper.toUser(userRequest);
+        updateUserUseCase.update(id, user);
+
+        return ResponseEntity.ok().build();
     }
 }
