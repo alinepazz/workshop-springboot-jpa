@@ -3,6 +3,8 @@ package com.educandoweb.course.core.usecase.impl;
 import com.educandoweb.course.core.dataprovider.FindUserById;
 import com.educandoweb.course.core.domain.User;
 import com.educandoweb.course.core.usecase.FindUserByIdUseCase;
+import com.educandoweb.course.dataprovider.exceptions.ResourceNotFoundException;
+
 import java.util.UUID;
 
 public class FindUserByIdUseCaseImpl implements FindUserByIdUseCase {
@@ -17,6 +19,6 @@ public class FindUserByIdUseCaseImpl implements FindUserByIdUseCase {
     @Override
     public User findById(UUID id) {
         return findUserById.findUserById(id)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new ResourceNotFoundException(id));
     }
 }
