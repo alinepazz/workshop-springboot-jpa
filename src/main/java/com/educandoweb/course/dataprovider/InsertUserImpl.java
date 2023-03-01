@@ -6,9 +6,10 @@ import com.educandoweb.course.dataprovider.repository.UserRepository;
 import com.educandoweb.course.dataprovider.repository.mapper.UserEntityMapper;
 import lombok.var;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-@Service
+@Component
 public class InsertUserImpl implements InsertUser {
 
     @Autowired
