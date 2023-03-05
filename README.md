@@ -44,5 +44,7 @@ git clone https://github.com/alinepazz/workshop-springboot-jpa.git
 /api/v1/orderItems
 /api/v1/categories
 ```
+## Collection
+[Course.postman_collection.zip](https://github.com/alinepazz/workshop-springboot-jpa/files/10892989/Course.postman_collection.zip)
 
 
