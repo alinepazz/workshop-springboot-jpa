@@ -29,4 +29,20 @@ Projeto web services com Spring Boot e JPA / Hibernate
 # clonar repositório
 git clone https://github.com/alinepazz/workshop-springboot-jpa.git
 
+# configurar o banco de dados
+
 # executar o projeto na IDE de escolha
+
+# realizar as requisições nos endpoints disponíveis
+```
+## Endpoints 
+```bash
+/api/v1/users
+/api/v1/products
+/api/v1/payments
+/api/v1/orders
+/api/v1/orderItems
+/api/v1/categories
+```
+
+
